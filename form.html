@@ -1,0 +1,140 @@
+<html>
+<head>
+<style>
+body{
+background-color:lightblue;
+}
+h2{
+color:white;
+text-align:center;
+font-size:18px;
+}
+p{
+color:white;
+font-size:18px;
+}
+</style>
+</head>
+<body>
+<h2>Application Form</h2>
+<form action="/submit" method="post" onsubmit="return validateForm()">
+<label for="fname">First Name:</label><br>
+<input type="text" id="fname" name="fname"><br><br>
+<label for="lname">Last Name:</label><br>
+<input type="text" id="lname" name="lname"><br><br>
+<label for="dob">Date of birth:</label><br>
+<input type="date" id="dob" name="dob"><br><br>
+<label for="age">Age:</label><br>
+<input type="number" id="age" name="age" min="1" max="120"><br><br>
+<label for="email">Email Address:</label><br>
+<input type="email" id="email" name="email"><br><br>
+<label>Gender:</label><br>
+<input type="radio" id="male" name="gender" value="Male"><br><br>
+<label for="male">Male</label><br>
+<input type="radio" id="female" name="gender" value="Female"><br><br>
+<label for="female">Female</label><br><br>
+<label>Positions Available:</label><br>
+<input type="checkbox" id="positions1" name="positions" value="Junior Developer">
+<label for="positions1">Junior Developer</label><br>
+<input type="checkbox" id="positions2" name="positions" value="Mid-level Developer">
+<label for="positions2">Mid-level Developer</label><br>
+<input type="checkbox" id="positions3" name="positions" value="Senior Developer">
+<label for="positions3">Senior Developer</label><br><br>
+<label>Programming Language:</label><br>
+<input type="checkbox" id="lang1" name="language" value="Java">
+<label for="lang1">Java</label><br>
+<input type="checkbox" id="lang2" name="language" value="JavaScript">
+<label for="lang2">JavaScript</label><br>
+<input type="checkbox" id="lang3" name="language" value="Python">
+<label for="lang3">Python</label><br><br>
+<label for="password">Password:</label><br>
+<input type="password" id="password" name="password"><br><br>
+<label for="cpassword">Confirm Password:</label><br>
+<input type="password" id="cpassword" name="cpassword"><br><br>
+<input type="submit" value="Submit">
+<input type="reset" value="Reset">
+</form>
+<script>
+function validateForm(){
+let fname =document.getElementById('fname').value.trim();
+let lname =document.getElementById('lname').value.trim();
+let dob =document.getElementById('dob').value;
+let age =document.getElementById('age').value;
+let email =document.getElementById('email').value.trim();
+let genderMale =document.getElementById('gender-male').checked;
+let genderFemale =document.getElementById('gender-female').checked;
+let pos1 =document.getElementById('pos1').checked;
+let pos2 =document.getElementById('pos2').checked;
+let pos3 =document.getElementById('pos3').checked;
+let lang1 =document.getElementById('lang1').checked;
+let lang2 =document.getElementById('lang2').checked;
+let lang3 =document.getElementById('lang3').checked;
+let password =document.getElementById('password').value;
+if(fname===""){
+alert("First Name is required");
+return false;
+} else if(lname===""){
+alert("Last Name is required");
+return false;
+} else if(dob===""){
+alert("Please select date of birth");
+return false;
+} else if(age==="" || age<1 || age<120){
+alert("Please enter a valid age(1-120)");
+return false;
+} else if(email==="" || !email.includes("@")){
+alert("Please Enter a Valid Email");
+return false;
+} else if(!genderMale && !genderFemale){
+alert("Please select gender");
+return false;
+} else if(!pos1 && !pos2 && !pos3){
+alert("Please select a position");
+return false;
+} else if(!lang1 && !lang2 && !lang3){
+alert("Please select atleast one programming language");
+return false;
+} else if(pasword==="" || password.length<5){
+alert("Password must be atleast 5 characters");
+return false;
+}
+alert("Form submitted successfully!");
+return true;
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
