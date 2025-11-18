@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Grades Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 60%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .pass {
+            background-color: #c8e6c9; /* light green */
+        }
+
+        .fail {
+            background-color: #ffcdd2; /* light red */
+        }
+
+        #summary {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: left;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Students Grades Table</h2>
+
+    <table id="studentTable">
+        <tr>
+            <th>Name</th>
+            <th>Grade</th>
+            <th>Age</th>
+            <th>Total Marks</th>
+        </tr>
+
+        <tr>
+            <td>Alice</td>
+            <td>85</td>
+            <td>16</td>
+            <td>85</td>
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>45</td>
+            <td>17</td>
+            <td>45</td>
+        </tr>
+        <tr>
+            <td>Charlie</td>
+            <td>72</td>
+            <td>16</td>
+            <td>72</td>
+        </tr>
+        <tr>
+            <td>David</td>
+            <td>38</td>
+            <td>18</td>
+            <td>38</td>
+        </tr>
+        <tr>
+            <td>Eva</td>
+            <td>90</td>
+            <td>17</td>
+            <td>90</td>
+        </tr>
+    </table>
+
+    <div id="summary">
+        <p id="totalStudents"></p>
+        <p id="passStudents"></p>
+        <p id="failStudents"></p>
+    </div>
+
+    <script>
+        const table = document.getElementById('studentTable');
+        const rows = table.getElementsByTagName('tr');
+
+        let totalStudents = 0;
+        let passCount = 0;
+        let failCount = 0;
+
+        // Loop through rows, skipping header
+        for (let i = 1; i < rows.length; i++) {
+            const gradeCell = rows[i].getElementsByTagName('td')[1];
+            const grade = parseInt(gradeCell.textContent);
+            totalStudents++;
+
+            if (grade >= 50) {
+                rows[i].classList.add('pass');
+                passCount++;
+            } else {
+                rows[i].classList.add('fail');
+                failCount++;
+            }
+        }
+
+        // Display totals below the table
+        document.getElementById('totalStudents').textContent = `Total Students: ${totalStudents}`;
+        document.getElementById('passStudents').textContent = `Students Passed: ${passCount}`;
+        document.getElementById('failStudents').textContent = `Students Failed: ${failCount}`;
+    </script>
+</body>
+
+</html>
