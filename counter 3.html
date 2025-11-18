@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Colorful Counter</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6a5acd, #00bfff);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 25px rgba(0,0,0,0.3);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #counter {
+            font-size: 50px;
+            font-weight: bold;
+            color: #6a5acd;
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .inc {
+            background-color: #32cd32;
+        }
+        .inc:hover {
+            background-color: #2eb82e;
+        }
+
+        .dec {
+            background-color: #ff4500;
+        }
+        .dec:hover {
+            background-color: #e63e00;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Colorful Counter 🎉</h2>
+
+    <div id="counter">0</div>
+
+    <button class="dec" onclick="changeCount(-1)">Decrement</button>
+    <button class="inc" onclick="changeCount(1)">Increment</button>
+</div>
+
+<script>
+    let count = 0;
+
+    function changeCount(value) {
+        count += value;
+        document.getElementById("counter").innerText = count;
+    }
+</script>
+
+</body>
+</html>
