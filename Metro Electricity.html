@@ -1,0 +1,80 @@
+<html>
+<head>
+    <style>
+        body{
+            background-color: paleturquoise;
+        }
+        h1{
+            color: blue;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Utility Electricity</h1>
+
+    <form onsubmit="return showCalculate()">
+        
+        <!-- Normal Connection -->
+        <label for="connection">Connection Type:</label><br>
+        <select id="connection">
+            <option value="">-- Select --</option>
+            <option value="Domestic">Domestic</option>
+            <option value="Commercial">Commercial</option>
+        </select><br><br>
+
+        <!-- Metro Connection -->
+        <label for="metro">Metro Type:</label><br>
+        <select id="metro">
+            <option value="">-- Select --</option>
+            <option value="Domestic">Domestic</option>
+            <option value="Commercial">Commercial</option>
+        </select><br><br>
+
+        <label for="units">Units Consumed:</label><br>
+        <input type="number" id="units"><br><br>
+
+        <label>Charges:</label>
+        <p id="charges"></p>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function showCalculate() {
+            let connType = document.getElementById("connection").value;
+            let metroType = document.getElementById("metro").value;
+            let units = parseInt(document.getElementById("units").value);
+            let charges = 0;
+
+            // If Metro selected → metro calculation
+            if(metroType !== ""){
+                if(metroType === "Domestic"){
+                    charges = units * 4;   // metro domestic
+                }
+                else if(metroType === "Commercial"){
+                    charges = units * 8;   // metro commercial
+                }
+            }
+            else if(connType !== "") {   
+                // normal connection calculation
+                if(connType === "Domestic"){
+                    charges = units * 5;   // normal domestic
+                }
+                else if(connType === "Commercial"){
+                    charges = units * 10;  // normal commercial
+                }
+            }
+            else{
+                alert("Please select connection or metro type");
+                return false;
+            }
+
+            document.getElementById("charges").innerText = charges;
+            return false;
+        }
+    </script>
+
+</body>
+</html>
