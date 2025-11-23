@@ -1,0 +1,180 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+/* ---------- Shared Styles ---------- */
+const pageStyle = (bgColor) => ({
+  minHeight: "100vh",
+  width: "100vw",
+  paddingTop: "120px",
+  paddingLeft: "60px",
+  paddingRight: "60px",
+  paddingBottom: "60px",
+  boxSizing: "border-box",
+  backgroundColor: bgColor,
+  color: "white",
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "space-between",
+  gap: "40px",
+  position: "relative",
+});
+
+const navStyle = {
+  width: "100%",
+  padding: "18px 40px",
+  backgroundColor: "#111",
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  position: "fixed",
+  top: 0,
+  left: 0,
+  zIndex: 10,
+  color: "white",
+  boxSizing: "border-box",
+};
+
+const navLinksStyle = {
+  display: "flex",
+  gap: "40px", // Keeps Contact fully visible
+};
+
+const linkStyle = {
+  color: "white",
+  fontSize: "18px",
+  textDecoration: "none",
+  fontWeight: "bold",
+};
+
+const imgStyle = {
+  width: "45%",
+  height: "auto",
+  borderRadius: "12px",
+  boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+};
+
+const footerStyle = {
+  position: "absolute",
+  bottom: "20px",
+  left: "60px",
+  opacity: 0.8,
+  fontSize: "14px",
+};
+
+/* ---------- Home Page ---------- */
+function Home() {
+  return (
+    <div style={pageStyle("#0ea5e9")}>
+      <div>
+        <h1>Welcome to Our Website 🌟</h1>
+        <p>Discover amazing features built for modern web experience.</p>
+
+        <ul style={{ fontSize: "18px", lineHeight: "1.8" }}>
+          <li>⚡ Fast responsive design</li>
+          <li>🎨 Clean modern UI</li>
+          <li>📱 Mobile-friendly pages</li>
+          <li>🌈 Beautiful color themes</li>
+        </ul>
+      </div>
+
+      <img
+        style={imgStyle}
+        src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
+        alt="Home Page"
+      />
+
+      <p style={footerStyle}>© 2025 Innovative Hub. All Rights Reserved.</p>
+    </div>
+  );
+}
+
+/* ---------- About Page ---------- */
+function About() {
+  return (
+    <div style={pageStyle("#8b5cf6")}>
+      <div>
+        <h1>About Us ✨</h1>
+        <p>
+          We create modern, fast, and interactive web applications using React.
+        </p>
+
+        <ul style={{ fontSize: "18px", lineHeight: "1.8" }}>
+          <li>🚀 Passionate developers</li>
+          <li>💡 Creative design team</li>
+          <li>🤝 Great user experience</li>
+        </ul>
+      </div>
+
+      <img
+        style={imgStyle}
+        src="https://images.unsplash.com/photo-1556761175-4b46a572b786"
+        alt="About Page"
+      />
+
+      <p style={footerStyle}>© 2025 Innovative Hub. All Rights Reserved.</p>
+    </div>
+  );
+}
+
+/* ---------- Contact Page ---------- */
+function Contact() {
+  return (
+    <div style={pageStyle("#f97316")}>
+      <div>
+        <h1>Contact Us 📞</h1>
+        <p>We’d love to connect with you. Reach out anytime!</p>
+
+        <ul style={{ fontSize: "18px", lineHeight: "1.8" }}>
+          <li>📧 Email: support@example.com</li>
+          <li>📱 Mobile: +91 9876543210</li>
+          <li>📍 Location: India</li>
+        </ul>
+      </div>
+
+      <img
+        style={imgStyle}
+        src="https://images.unsplash.com/photo-1590650046871-92c887180603"
+        alt="Contact Page"
+      />
+
+      <p style={footerStyle}>© 2025 Innovative Hub. All Rights Reserved.</p>
+    </div>
+  );
+}
+
+/* ---------- App Component ---------- */
+function App() {
+  return (
+    <Router>
+      <nav style={navStyle}>
+        {/* Left Side Logo */}
+        <h2 style={{ margin: 0 }}>Innovative Hub ✨</h2>
+
+        {/* Right Side Links */}
+        <div style={navLinksStyle}>
+          <Link to="/" style={linkStyle}>Home</Link>
+          <Link to="/about" style={linkStyle}>About</Link>
+          <Link to="/contact" style={linkStyle}>Contact</Link>
+        </div>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
+  );
+}
+
+/*---------Styles-------*/
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+export default App;
